@@ -62,9 +62,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: |
-        # Build-time
           17
-        # Runtime
           22
         distribution: temurin
         cache: gradle
