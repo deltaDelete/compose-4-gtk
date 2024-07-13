@@ -61,7 +61,11 @@ jobs:
     - name: Setup Java
       uses: actions/setup-java@v4
       with:
-        java-version: 21
+        java-version: |
+        # Build-time
+          17
+        # Runtime
+          22
         distribution: temurin
         cache: gradle
 
