@@ -8,6 +8,7 @@ import io.github.mmarco94.compose.GtkComposeNode
 import io.github.mmarco94.compose.SingleChildComposeNode
 import io.github.mmarco94.compose.VirtualComposeNode
 import io.github.mmarco94.compose.modifier.Modifier
+import io.github.mmarco94.compose.modifier.combine
 import io.github.mmarco94.compose.shared.ActionGroupBuilderScope
 import io.github.mmarco94.compose.shared.MenuBuilderScope
 import io.github.mmarco94.compose.shared.actionGroupBase
@@ -46,7 +47,7 @@ fun Popover(
 
         val parent = mutableStateOf<Widget?>(null)
 
-        override fun Modifier.popoverTrigger(): Modifier = Modifier.of {
+        override fun Modifier.popoverTrigger(): Modifier = combine{
             parent.value = it
             popover.parent = it
         }
@@ -84,7 +85,7 @@ fun PopoverMenu(arrow: Boolean = true, trigger: @Composable PopoverScope.() -> U
             .setHasArrow(arrow)
             .build()
 
-        override fun Modifier.popoverTrigger(): Modifier = Modifier.of {
+        override fun Modifier.popoverTrigger(): Modifier = combine {
             popover.parent = it
         }
     }

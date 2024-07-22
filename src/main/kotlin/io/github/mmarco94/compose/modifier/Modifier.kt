@@ -46,3 +46,7 @@ fun Modifier.combine(
     apply: (Widget) -> Unit,
     undo: (Widget) -> Unit,
 ) = this + Modifier.of(apply, undo)
+
+fun Modifier.combine(
+    apply: (Widget) -> Unit,
+) = this + Modifier.of(apply)
